@@ -64,4 +64,6 @@ def index():
 
 # ---------- 启动服务 ----------
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # 本地开发用固定端口，Railway 会自动注入 PORT 环境变量
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
